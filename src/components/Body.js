@@ -29,21 +29,21 @@ const Body = () => {
 	
 	return (allRestaurants.length === 0 ?
 		<Shimmer /> : (<>
-	<div className="search-container">
+	<div className="flex justify-center">
 		<input type="text"
-			className="search-input"
+			className="outline-none text-base mob:text-xs p-[5px] basis-[350px] mob:basis-[270px] h-[30px] rounded-md ring-1 ring-gray bg-gray"
 			placeholder="Search"
 			value={searchtxt}
 			onChange={(e) => setSearchtxt(e.target.value)}>
 		</input>
-		<button className="search-btn" 
+		<button className="px-10 mx-2 bg-[#f8a30e] active:bg-yellow-700 focus:bg-[#f8a30e] rounded-md" 
 			onClick={()=> {
 			const data = filterData(searchtxt,allRestaurants);
 			setFilteredRestaurants(data);
 		}}>
 			Search </button>
 		</div>
-			<div className='restaurant-list'>
+			<div className='flex flex-wrap'>
 				
 		{filteredRestaurants.map((restaurant)=>{
 			return <Link to={"/restaurant/" +restaurant.data.id }><RestaurantCard {...restaurant.data} key={restaurant.data.id} /></Link>

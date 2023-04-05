@@ -16,12 +16,13 @@ const Body = () => {
 		getRestaurants();
 	},[])
 
-	async function getRestaurants(){
+	async function getRestaurants() {
+	
 		const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING")
-		const json = await data.json();
+		const jsondata = await data.json();
 		//optional chaining
-		setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards)
-		setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards)
+		setAllRestaurants(jsondata?.data?.cards[2]?.data?.data?.cards)
+		setFilteredRestaurants(jsondata?.data?.cards[2]?.data?.data?.cards)
 	}
 	//early return
 	if (!allRestaurants) return null;

@@ -8,15 +8,17 @@ import Error from './components/Error';
 import Contact from './components/Contact';
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import RestaurantMenu from './components/RestaurantMenu';
+import store from './utils/store';
+import {Provider} from "react-redux"
 
 const AppLayout = () => {
 
 	return (
-		<>
+	<Provider store={store}>
 			<Header />
 			<Outlet />
 			<Footer />
-		</>
+</Provider>
 	);
 };
 

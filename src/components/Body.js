@@ -4,6 +4,7 @@ import {useState,useEffect} from "react";
 import Shimmer from "./Shimmer.js";
 import {Link} from "react-router-dom"
 import {filterData} from "../utils/helper"
+import useOnline from "../utils/context/useOnline.js";
 
 
 const Body = () => {
@@ -23,6 +24,10 @@ const Body = () => {
 		//optional chaining
 		setAllRestaurants(jsondata?.data?.cards[2]?.data?.data?.cards)
 		setFilteredRestaurants(jsondata?.data?.cards[2]?.data?.data?.cards)
+	}
+	const isOnline = useOnline();
+	if (!isOnline) {
+		return <h1>Opps something went wrong please check your internet </h1>
 	}
 	//early return
 	if (!allRestaurants) return null;

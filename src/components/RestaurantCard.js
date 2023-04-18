@@ -1,4 +1,4 @@
-import {IMG_CDN_URL} from "../constants.js"
+import {RES_IMG_CDN_URL} from "../constants.js"
 
 
   const RestaurantCard = ({
@@ -15,7 +15,7 @@ aggregatedDiscountInfo,
       <div className="w-[200px] p-2 hover:shadow-md h-[220px]">
         <img
           src={
-            IMG_CDN_URL
+            RES_IMG_CDN_URL
             + cloudinaryImageId
           }
         />

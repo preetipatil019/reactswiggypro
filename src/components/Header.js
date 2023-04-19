@@ -59,7 +59,7 @@ const Header = () => {
 	return (
 		<div className="flex justify-between">
 			<Title />
-			<h1 className="py-12 px-10"><Intro/></h1>
+			<h1 className="py-10 px-10"><Intro/></h1>
 			{/* <button onClick={()=>setTitle("Welcome Preeti")}>change title</button> */}
 			<div className="nav-items">
 				<ul className="flex py-10 px-10 justify-between">

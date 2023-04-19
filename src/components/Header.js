@@ -63,10 +63,11 @@ const Header = () => {
 			{/* <button onClick={()=>setTitle("Welcome Preeti")}>change title</button> */}
 			<div className="nav-items">
 				<ul className="flex py-10 px-10 justify-between">
-					<li className="px-10 py-2 hover:bg-[#f8a30e] active:bg-yellow-700 focus:outline-none rounded-md"><Link  to ="/">Home</Link> </li>	
-					<li className="px-10 py-2 hover:bg-[#f8a30e] active:bg-yellow-700 focus:outline-none rounded-md"><Link to="/about">About</Link> </li>
-					<li className="px-10 py-2 hover:bg-[#f8a30e] active:bg-yellow-700 focus:outline-none rounded-md"><Link to="/contact">Contact </Link></li>
-					<li className="px-10 py-2 hover:bg-[#f8a30e] active:bg-yellow-700 focus:outline-none rounded-md">Cart - {cartItems.length} Items</li>
+					<li ><Link className="px-10 py-2 hover:bg-[#f8a30e] active:bg-yellow-700 focus:outline-none rounded-md" to ="/">Home</Link> </li>	
+					<li ><Link className="px-10 py-2 hover:bg-[#f8a30e] active:bg-yellow-700 focus:outline-none rounded-md" to="/about">About</Link> </li>
+					<li ><Link className="px-10 py-2 hover:bg-[#f8a30e] active:bg-yellow-700 focus:outline-none rounded-md" to="/contact">Contact </Link></li>
+					<li ><Link className="px-10 py-2 hover:bg-[#f8a30e] active:bg-yellow-700 focus:outline-none rounded-md" to="/instamart">Instamart </Link></li>
+					<li className="hover:bg-[#f8a30e] active:bg-yellow-700 focus:outline-none rounded-md">Cart - {cartItems.length} Items</li>
 				</ul>
 			</div>
 			{isLoggedIn ?<button onClick={()=> setIsLoggedIn(false)}>LogOut</button>

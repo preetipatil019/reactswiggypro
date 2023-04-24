@@ -1,7 +1,7 @@
  import logo from "../assets/icon.png"
-import { useState } from "react";
+import { useState,useContext } from "react";
 import { Link } from "react-router-dom";
- 
+ import UserContext from "../utils/context/UserContext";
 import { UserAuth } from "../utils/context/UserAuth";
 import { useSelector } from "react-redux";
 
@@ -55,6 +55,7 @@ const Header = () => {
 	const [title, setTitle] = useState("Please Login!")
 	const [isLoggedIn, setIsLoggedIn] = useState(false)
 	const cartItems = useSelector(store => store.cart.items)
+	const {user} = useContext(UserContext)
 	
 	return (
 		<div className="flex justify-between">
@@ -70,6 +71,7 @@ const Header = () => {
 					<li className="hover:bg-[#f8a30e] active:bg-yellow-700 focus:outline-none rounded-md">Cart - {cartItems.length} Items</li>
 				</ul>
 			</div>
+			<div className="p-10 font-bold text-red-900">{user.name}</div>
 			{isLoggedIn ?<button onClick={()=> setIsLoggedIn(false)}>LogOut</button>
 				:<button onClick={()=> setIsLoggedIn(true) && setTitle("Welcome")}>Login</button>}
 		</div>

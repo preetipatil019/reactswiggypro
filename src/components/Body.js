@@ -1,16 +1,20 @@
 import {restrautList} from "../constants.js";
 import RestaurantCard from "./RestaurantCard.js";
-import {useState,useEffect} from "react";
+import {useState,useEffect,useContext} from "react";
 import Shimmer from "./Shimmer.js";
 import {Link} from "react-router-dom"
 import {filterData} from "../utils/helper"
-import useOnline from "../utils/context/useOnline.js";
+import useOnline from "../utils/context/useOnline";
+import UserContext from "../utils/context/UserContext";
 
 
 const Body = () => {
 	const [allRestaurants, setAllRestaurants] = useState([]);
 	const [filteredRestaurants,setFilteredRestaurants] =useState([]);
-	const [searchtxt,setSearchtxt] = useState("");
+	const [searchtxt, setSearchtxt] = useState("");
+	const { user,setUser } = useContext(UserContext)
+	
+
 
 	useEffect(()=>{
 		//api call
@@ -47,8 +51,20 @@ const Body = () => {
 			const data = filterData(searchtxt,allRestaurants);
 			setFilteredRestaurants(data);
 		}}>
-			Search </button>
-		</div>
+					Search </button>
+				<input value={user.name} type="text" onChange={(e) => setUser({
+						...user,
+					name: e.target.value
+				
+				})} />
+				<input value={user.email} type="text" onChange={(e) => setUser({
+					...user,
+					email: e.target.value
+				})}/>
+				<span className="px-10 text-red-900 font-bold">{user.name}</span>
+				<span className="text-red-900 font-bold">{user.email}</span>
+			</div>
+			
 			<div className='flex flex-wrap'>
 				
 		{filteredRestaurants.map((restaurant)=>{

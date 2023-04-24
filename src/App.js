@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, lazy,Suspense, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from "./components/Header"
 import Body from "./components/Body"
@@ -9,8 +9,8 @@ import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import RestaurantMenu from './components/RestaurantMenu';
 import store from './utils/store';
 import {Provider} from "react-redux"
-import { lazy,Suspense } from 'react';
 import Shimmer from './components/Shimmer';
+import UserContext from './utils/context/UserContext';
 
 const Instamart = lazy(() => import("./components/Instamart"))
 
@@ -18,11 +18,24 @@ const About = lazy(() => import("./components/About"))
 
 
 const AppLayout = () => {
-
+	const [user, setUser] = useState({
+		name: "Akshay",
+		email:"Akshay123@gmail.com"
+	})
+	useEffect(() => {
+	   
+   },[user])
 	return (
 	<Provider store={store}>
 			<Header />
-			<Outlet />
+			<UserContext.Provider value={{
+				user: user,
+				setUser:setUser
+
+			}}>
+				<Outlet />
+			</UserContext.Provider>
+			
 			<Footer />
 </Provider>
 	);

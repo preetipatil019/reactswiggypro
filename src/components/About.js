@@ -1,7 +1,11 @@
-import React from "react";
+import React,{useContext} from "react";
 import Banner from '../assets/banner.jpg';
+import UserContext from "../utils/context/UserContext";
+
 
 const About = () => {
+    const {user} = useContext(UserContext);
+
     return (<>
          <div className='flex flex-col justify-center items-center w-full h-full'>
         <div className='max-w-[800px] w-full'>

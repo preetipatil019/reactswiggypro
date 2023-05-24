@@ -39,7 +39,7 @@ const Body = () => {
 	
 	return (allRestaurants.length === 0 ?
 		<Shimmer /> : (<>
-	<div className="flex justify-center">
+	<div className="flex justify-center py-4">
 		<input type="text"
 			className="outline-none text-base mob:text-xs p-[5px] basis-[350px] mob:basis-[270px] h-[30px] rounded-md ring-1 ring-gray bg-gray"
 			placeholder="Search"
@@ -52,17 +52,8 @@ const Body = () => {
 			setFilteredRestaurants(data);
 		}}>
 					Search </button>
-				<input value={user.name} type="text" onChange={(e) => setUser({
-						...user,
-					name: e.target.value
 				
-				})} />
-				<input value={user.email} type="text" onChange={(e) => setUser({
-					...user,
-					email: e.target.value
-				})}/>
-				<span className="px-10 text-red-900 font-bold">{user.name}</span>
-				<span className="text-red-900 font-bold">{user.email}</span>
+			
 			</div>
 			
 			<div className='flex flex-wrap'>

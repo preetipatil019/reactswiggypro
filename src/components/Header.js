@@ -58,7 +58,7 @@ const Header = () => {
 	const {user} = useContext(UserContext)
 	
 	return (
-		<div className="flex justify-between">
+		<div className="flex justify-between shadow-md">
 			<Title />
 			<h1 className="py-10 px-10"><Intro/></h1>
 			{/* <button onClick={()=>setTitle("Welcome Preeti")}>change title</button> */}

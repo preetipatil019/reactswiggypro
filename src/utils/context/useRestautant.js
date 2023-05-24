@@ -15,13 +15,13 @@ const useRestautant = (resId) => {
       const res_data = await response.json();
       /* Mock Data */
       //const res_data =  restrautList;
-     
-      setRestaurant(res_data.data)
+   
+      setRestaurant(res_data.data.cards[0].card.card.info)
     } catch (error) {
       console.log(error);
     }
   };
-
+  console.log(restaurant +"hhh")
   return restaurant;
 
 }
